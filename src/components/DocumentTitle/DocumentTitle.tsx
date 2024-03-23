@@ -11,6 +11,14 @@ interface DocumentTitleProps {
 
 const DefaultWebsiteName = 'My Website'
 
+/**
+ * @author quyn2904
+ * @param title: string, là tiêu đề của trang. Ex: Home, Login
+ * @param websiteName?: string, là tên của website. Ex: My Website, Facebook
+ * @returns Title: title | websiteName. Ex: Login | Facebook
+ * @version 1.0
+ */
+
 const DocumentTitle = ({ title, websiteName }: DocumentTitleProps) => {
   return (
     <Helmet>
