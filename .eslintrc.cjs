@@ -27,7 +27,8 @@ module.exports = {
       node: {
         paths: [path.resolve(__dirname, '')],
         extensions: ['.js', '.jsx', '.ts', '.tsx']
-      }
+      },
+      typescript: {}
     }
   },
   env: {
@@ -39,7 +40,8 @@ module.exports = {
     // Cảnh báo khi thẻ <a target='_blank'> mà không có rel="noreferrer"
     'react/jsx-no-target-blank': 'warn',
     // Tăng cường một số rule prettier (copy từ file .prettierrc qua)
-    'no-unused-vars': 'warn',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['warn'],
     'prettier/prettier': [
       'warn',
       {

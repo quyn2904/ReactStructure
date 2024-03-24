@@ -8,7 +8,7 @@ import { useInView } from 'react-intersection-observer'
 import PropTypes from 'prop-types'
 
 // constants
-import { SpringType } from 'src/constants/enums'
+import { SpringType } from '@constants/enums'
 
 interface SpringProps {
   index?: number

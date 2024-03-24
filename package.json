@@ -15,11 +15,16 @@
   "dependencies": {
     "@react-spring/web": "^9.7.3",
     "@types/prop-types": "^15.7.12",
+    "@types/styled-theming": "^2.2.8",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
-    "react-intersection-observer": "^9.8.1"
+    "react-intersection-observer": "^9.8.1",
+    "react-router-dom": "^6.22.3",
+    "sass": "^1.72.0",
+    "styled-components": "^6.1.8",
+    "styled-theming": "^2.2.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.30",
@@ -32,6 +37,7 @@
     "autoprefixer": "^10.4.19",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-prettier": "^5.1.3",
