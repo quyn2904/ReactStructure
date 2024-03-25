@@ -9,5 +9,6 @@ export default createGlobalStyle`
       light: 'var(--border-light)',
       dark: 'var(--border-dark)'
     })}
+    
   }
 `

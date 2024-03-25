@@ -1,46 +1,46 @@
 //utils
-
-//lazy, suspense
+import { lazy, Suspense } from 'react'
 
 //styles
 import '@styles/index.scss'
 import ThemeStyles from '@styles/theme'
 
 //contexts
+import { SidebarProvider } from '@contexts/sidebarContext'
 import { ThemeProvider } from 'styled-components'
 
 //hooks
 import { ThemeContextType, useTheme } from '@contexts/themeContext'
 
 //constants
-import { SpringType } from '@constants/enums'
 
-//conponrnts
+//conponents
+// import { useWindowSize } from 'react-use'
+import Loader from '@components/Loader'
+import { Route, Routes } from 'react-router-dom'
 
-import Spring from '@components/Spring'
-import DocumentTitle from '@components/DocumentTitle'
+//pages
+const Login = lazy(() => import('@pages/Login'))
 
 function App() {
-  const { theme, toggleTheme } = useTheme() as ThemeContextType
+  // const { width } = useWindowSize()
+  const { theme } = useTheme() as ThemeContextType
 
   return (
-    <>
+    <SidebarProvider>
       <ThemeProvider theme={{ theme: theme }}>
         <ThemeStyles />
-        <DocumentTitle title='Title ne' websiteName='Ahihi' />
-        <Spring className='max-w-[460px] w-full' index={3} type={SpringType.SLIDE_LEFT} duration={400} delay={300}>
-          <div className='flex flex-col gap-2.5 text-center'>
-            <h1>Welcome back!</h1>
-            <p className='lg:max-w-[300px] m-auto 4xl:max-w-[unset]'>
-              Etiam quis quam urna. Aliquam odio erat, accumsan eu nulla in
-            </p>
-          </div>
-        </Spring>
-        <button className='border' aria-label='Change theme' onClick={toggleTheme}>
-          Change Theme
-        </button>
+        <div className='app_content'>
+          <Suspense fallback={<Loader />}>
+            <div className='main'>
+              <Routes>
+                <Route path='/login' element={<Login />} />
+              </Routes>
+            </div>
+          </Suspense>
+        </div>
       </ThemeProvider>
-    </>
+    </SidebarProvider>
   )
 }
 
