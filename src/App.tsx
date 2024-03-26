@@ -11,12 +11,12 @@ import { ThemeProvider } from 'styled-components'
 
 //hooks
 import { ThemeContextType, useTheme } from '@contexts/themeContext'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import { useWindowSize } from 'react-use'
 
 //conponents
 import Loader from '@components/Loader'
-import { Route, Routes, useLocation } from 'react-router-dom'
-import { AppBar } from '@mui/material'
+import AppBar from '@layout/AppBar'
 import { ToastContainer } from 'react-toastify'
 
 //pages

@@ -21,6 +21,7 @@
       "@contexts/*": ["contexts/*"],
       "@db/*": ["db/*"],
       "@hooks/*": ["hooks/*"],
+      "@layout/*": ["layout/*"],
       "@pages/*": ["pages/*"],
       "@styles/*": ["styles/*"]
     },
