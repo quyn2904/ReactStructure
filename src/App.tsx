@@ -1,5 +1,5 @@
 //utils
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useEffect, useRef } from 'react'
 
 //styles
 import '@styles/index.scss'
@@ -11,33 +11,44 @@ import { ThemeProvider } from 'styled-components'
 
 //hooks
 import { ThemeContextType, useTheme } from '@contexts/themeContext'
-
-//constants
+import { useWindowSize } from 'react-use'
 
 //conponents
-// import { useWindowSize } from 'react-use'
 import Loader from '@components/Loader'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
+import { AppBar } from '@mui/material'
+import { ToastContainer } from 'react-toastify'
 
 //pages
 const Login = lazy(() => import('@pages/Login'))
 
 function App() {
-  // const { width } = useWindowSize()
+  const { width } = useWindowSize()
+  const appRef = useRef<HTMLDivElement>(null)
   const { theme } = useTheme() as ThemeContextType
+  const path = useLocation().pathname
+  const withSidebar = path !== '/login' && path !== '404'
+
+  useEffect(() => {
+    appRef.current && appRef.current.scrollTo(0, 0)
+  }, [])
 
   return (
     <SidebarProvider>
       <ThemeProvider theme={{ theme: theme }}>
         <ThemeStyles />
-        <div className='app_content'>
-          <Suspense fallback={<Loader />}>
-            <div className='main'>
-              <Routes>
-                <Route path='/login' element={<Login />} />
-              </Routes>
-            </div>
-          </Suspense>
+        <ToastContainer theme={theme} autoClose={2000} style={{ padding: '20px' }} />
+        {width < 1280 && withSidebar && <AppBar />}
+        <div className={`app ${!withSidebar ? 'fluid' : ''}`} ref={appRef}>
+          <div className='app_content'>
+            <Suspense fallback={<Loader />}>
+              <div className='main'>
+                <Routes>
+                  <Route path='/login' element={<Login />} />
+                </Routes>
+              </div>
+            </Suspense>
+          </div>
         </div>
       </ThemeProvider>
     </SidebarProvider>

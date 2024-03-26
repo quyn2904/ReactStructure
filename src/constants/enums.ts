@@ -6,3 +6,10 @@ export enum SpringType {
   SLIDE_LEFT = 'slideLeft',
   ZOOM = 'zoom'
 }
+
+export enum AnchorType {
+  TOP = 'top',
+  RIGHT = 'right',
+  BOTTOM = 'bottom',
+  LEFT = 'left'
+}

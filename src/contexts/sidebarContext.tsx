@@ -1,4 +1,4 @@
-import useScrollLock from 'hooks/useScrollLock'
+import useScrollLock from '@hooks/useScrollLock'
 import { createContext, useContext, useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 

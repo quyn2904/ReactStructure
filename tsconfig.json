@@ -15,12 +15,14 @@
     "jsx": "react-jsx",
     "baseUrl": "./src",
     "paths": {
-      "@components/*": ["components/*"],
-      "@pages/*": ["pages/*"],
       "@assets/*": ["assets/*"],
-      "@styles/*": ["styles/*"],
+      "@components/*": ["components/*"],
+      "@constants/*": ["constants/*"],
       "@contexts/*": ["contexts/*"],
-      "@constants/*": ["constants/*"]
+      "@db/*": ["db/*"],
+      "@hooks/*": ["hooks/*"],
+      "@pages/*": ["pages/*"],
+      "@styles/*": ["styles/*"]
     },
 
     /* Linting */
